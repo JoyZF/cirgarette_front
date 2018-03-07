@@ -1,0 +1,26 @@
+{
+    "title": "盖珀官网",
+    "version": "1.0.0",
+    "engine": "",
+    "rulebase": "interfaceRules",
+    "status": "online",
+    "interfaces": [ {
+        "name": "首页",
+        "id": "Index.home",
+        "method":"post",
+        "urls": {
+            "online": "http://192.168.3.169/cigarette/api/web/index.php/v1/goods/list"
+        },
+        "encoding": "utf8"
+    },
+        {
+            "name": "商品详情",
+            "id": "Index.detail",
+            "method":"get",
+            "urls": {
+                "online": "http://192.168.3.169/cigarette/api/web/index.php/v1/goods/detail"
+            },
+            "encoding": "utf8"
+        }
+    ]
+}
