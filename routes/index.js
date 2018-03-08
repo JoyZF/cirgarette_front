@@ -52,4 +52,16 @@ router.get('/details', function(req, res, next) {
 router.get('/blog', function(req, res, next) {
     res.render('blog');
 });
+router.post('/contact', function (req, res, next) {
+    console.log(req.body);
+    var searchModel = new ModelProxy({IndexContact:"Index.contact"});
+    searchModel.IndexContact(req.body).done(function (json) {
+        console.log(json);
+        if (json.code == 1) {
+            res.json({"code":1,"msg":"success"});
+        } else {
+            res.json({"code":0,"msg":"fail"});
+        }
+    })
+})
 module.exports = router;

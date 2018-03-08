@@ -58,7 +58,7 @@
 <div class="wrap">
 <div class="header_btm">
 		<div class="menu">
-			<ul>
+			<ul style="margin-bottom: 0px">
 				<li><a href="/">Home</a></li>
 				<li><a href="/products">products</a></li>
 				<li><a href="/about">about</a></li>
@@ -128,19 +128,19 @@
 					    <!--<form method="post">-->
 					    	<div>
 						    	<span><label>NAME</label></span>
-						    	<span><input name="userName" type="text" class="textbox"></span>
+						    	<span><input name="userName" type="text" class="userName" ></span>
 						    </div>
 						    <div>
 						    	<span><label>E-MAIL</label></span>
-						    	<span><input name="userEmail" type="text" class="textbox"></span>
+						    	<span><input name="userEmail" type="text" class="userEmail"></span>
 						    </div>
 						    <div>
 						     	<span><label>MOBILE</label></span>
-						    	<span><input name="userPhone" type="text" class="textbox"></span>
+						    	<span><input name="userPhone" type="text" class="userPhone"></span>
 						    </div>
 						    <div>
 						    	<span><label>SUBJECT</label></span>
-						    	<span><textarea name="userMsg"> </textarea></span>
+						    	<span><textarea name="userMsg" class="userMsg"> </textarea></span>
 						    </div>
 						   <div>
 						   		<span><input type="submit" class="submit" value="submit us"></span>
@@ -170,17 +170,17 @@
 			<p class="top"><a href="#">@Contrarypopular</a> I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give <a href="#">@accountofsystem</a> </p>
 			<p class="top">19 days ago</p>
 		</div>
-		<div class="span1_of_3">
-			<h3>flickr widget</h3>
-			<ul class="f_nav">
-				<li><a href="#"><img src="images/f_pic1.jpg" alt="" /> </a></li>
-				<li><a href="#"><img src="images/f_pic2.jpg" alt="" /> </a></li>
-				<li><a href="#"><img src="images/f_pic3.jpg" alt="" /> </a></li>
-				<li><a href="#"><img src="images/f_pic4.jpg" alt="" /> </a></li>
-				<li><a href="#"><img src="images/f_pic5.jpg" alt="" /> </a></li>
-				<li><a href="#"><img src="images/f_pic6.jpg" alt="" /> </a></li>
-			</ul>
-		</div>
+		<!--<div class="span1_of_3">-->
+			<!--<h3>flickr widget</h3>-->
+			<!--<ul class="f_nav">-->
+				<!--<li><a href="#"><img src="images/f_pic1.jpg" alt="" /> </a></li>-->
+				<!--<li><a href="#"><img src="images/f_pic2.jpg" alt="" /> </a></li>-->
+				<!--<li><a href="#"><img src="images/f_pic3.jpg" alt="" /> </a></li>-->
+				<!--<li><a href="#"><img src="images/f_pic4.jpg" alt="" /> </a></li>-->
+				<!--<li><a href="#"><img src="images/f_pic5.jpg" alt="" /> </a></li>-->
+				<!--<li><a href="#"><img src="images/f_pic6.jpg" alt="" /> </a></li>-->
+			<!--</ul>-->
+		<!--</div>-->
 		<div class="clear"></div>
 	</div>
 </div>
@@ -196,15 +196,15 @@
 			<!--<input type="submit" value=""/>-->
 		<!--</form>-->
 	<!--</div>-->
-	<div class="soc_icons">
-			<ul>
-				<li><a class="icon1" href="#"></a></li>
-				<li><a class="icon2" href="#"></a></li>
-				<li><a class="icon3" href="#"></a></li>
-				<li><a class="icon4" href="#"></a></li>
-				<li><a class="icon5" href="#"></a></li>
-			</ul>	
-	</div>
+	<!--<div class="soc_icons">-->
+			<!--<ul>-->
+				<!--<li><a class="icon1" href="#"></a></li>-->
+				<!--<li><a class="icon2" href="#"></a></li>-->
+				<!--<li><a class="icon3" href="#"></a></li>-->
+				<!--<li><a class="icon4" href="#"></a></li>-->
+				<!--<li><a class="icon5" href="#"></a></li>-->
+			<!--</ul>	-->
+	<!--</div>-->
 	<div class="clear"></div>
 </div>
 </div>
@@ -249,8 +249,36 @@
 </div>
 </body>
 <script>
+//	$(function (){
+//	  alert(1)
+//	})
 	$('.submit').click(function () {
-	    alert('that is ok');
+	    let userMsg = $(".userMsg").val();
+	    let userName = $(".userName").val();
+	    let userPhone = $(".userPhone").val();
+	    let userEmail = $(".userEmail").val();
+	    let arr = {
+	        subject: userMsg,
+			name: userName,
+			mobile: userPhone,
+			email: userEmail
+		}
+		for (let i in arr) {
+//	        console.log(arr[i])
+			if (arr[i] == '') {
+			    alert('we need all information!');
+			    return false;
+			}
+		}
+		$.post('/contact', arr, function (json) {
+//		    console.log(json)
+			if (json.code == 1) {
+		        alert("Thank you for your information, we'll contact with you~");
+			} else {
+		        alert("sorry,please upload your information again!");
+			}
+		})
+//	    alert('that is ok');
 	})
 </script>
 </html>

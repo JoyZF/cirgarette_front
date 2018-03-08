@@ -9,7 +9,7 @@
         "id": "Index.home",
         "method":"post",
         "urls": {
-            "online": "http://192.168.3.169/cigarette/api/web/index.php/v1/goods/list"
+            "online": "http://api.bilyun.com/v1/goods/list"
         },
         "encoding": "utf8"
     },
@@ -18,7 +18,16 @@
             "id": "Index.detail",
             "method":"get",
             "urls": {
-                "online": "http://192.168.3.169/cigarette/api/web/index.php/v1/goods/detail"
+                "online": "http://api.bilyun.com/v1/goods/detail"
+            },
+            "encoding": "utf8"
+        },
+        {
+            "name": "联系",
+            "id": "Index.contact",
+            "method":"post",
+            "urls": {
+                "online": "http://api.bilyun.com/v1/contact/add"
             },
             "encoding": "utf8"
         }
