@@ -464,15 +464,16 @@ h4.style{
 	display: block;
 }
 .grid1_of_3{
+
 	float:left;
 	width:30.3333%;
-	margin-left:4.3333%;
+	margin:1% 1.4444%;
 	background: #ffffff;
 	position: relative;
 }
-.grid1_of_3:first-child{
-	margin-left: 0;
-}
+/*.grid1_of_3:first-child{*/
+	/*margin-left: 0;*/
+/*}*/
 .grid1_of_3 a{
 	display: block;
 }
@@ -523,7 +524,7 @@ h4.style{
 /* start grids_of_2 */
 .grids_of_3{
 	display: block;
-	margin: 4% 0;
+	margin: 2% 0;
 }
 .grid1_of_2{
 	float:left;
